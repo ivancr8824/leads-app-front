@@ -1,0 +1,70 @@
+<div class="modal-header modal-dialog-centered">
+    <h5 class="modal-title">
+        Nuevo Lead
+    </h5>
+    <button type="button" class="btn-close" (click)="closeModal()" [disabled]="(uISubmit$ | async).submit"></button>
+</div>
+<form [formGroup]="leadForm" (ngSubmit)="saveLead()">
+    <div class="modal-body">
+        <div class="mb-3">
+            <label for="recipient-name"  class="col-form-label">Nombre *:</label>
+            <input type="text" formControlName="name" class="form-control" placeholder="Ingrese el nombre">
+            <span class="text-danger" *ngIf="(name.dirty || name.touched) && name.invalid && name.errors.required">El nombre el requerido</span>
+        </div>
+        <div class="mb-3">
+            <label for="message-text" class="col-form-label">Teléfono:</label>
+            <div class="input-group mb-3" *ngIf="countries$ | async as Countries">
+                <select formControlName="countrie" class="select-country">
+                    <option [value]="countrie.name" 
+                            *ngFor="let countrie of Countries.countries"
+                    >
+                        {{ countrie.code }} {{ countrie.name }}
+                    </option>
+                </select>
+                <input class="form-control" formControlName="phone" placeholder="Ingrese el teléfono ej: 0999999999">
+            </div>
+            <span class="text-danger" *ngIf="(phone.dirty || phone.touched) && phone.invalid && phone.errors.invalidNumber">
+                El teléfono no es válido
+            </span>
+        </div>
+        <div class="mb-3">
+            <label for="message-text" class="col-form-label">Email:</label>
+            <input class="form-control" formControlName="email" placeholder="Ingrese email ej: ejemplo@ejemplo.com">
+            <span class="text-danger" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.email">El correo no es válido</span>
+        </div>
+        <div class="mb-3" *ngIf="lead.Id > 0">
+            <label for="message-text" class="col-form-label">Estado:</label>
+            <select formControlName="statusLead" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option value="" selected>-- Estado del Lead --</option>
+                <option value="Abierto">Abierto</option>
+                <option value="Calificado">Calificado</option>
+                <option value="Descalificado">Descalificado</option>
+            </select>
+            <span class="text-danger" *ngIf="(statusLead.dirty || statusLead.touched) && statusLead.invalid && statusLead.errors.required">El estado es requerido</span>
+        </div>
+    </div>
+    <div class="modal-footer">
+    <button type="submit"
+                *ngIf="!(uISubmit$ | async).submit"
+                [disabled]="!leadForm.valid" 
+                class="btn btn-primary"
+        >
+            <i class="fas fa-save"></i>
+            Guardar
+        </button>
+        <button type="submit"
+                *ngIf="(uISubmit$ | async).submit"
+                disabled
+                class="btn btn-primary"
+        >
+            <i class="fas fa-spinner fa-spin"></i>
+            Espere por favor...
+        </button>
+        <button 
+            type="button" 
+            class="btn btn-secondary"
+            [disabled]="(uISubmit$ | async).submit"
+            (click)="closeModal()" 
+        >Cerrar</button>
+    </div>
+</form>
