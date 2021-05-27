@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResponseCampaign, ResponseSendingEmailCampaign } from '../models/campaign.model';
 
-//const URL: string = 'https://leads-backend-consalud.herokuapp.com/api/leads';
-const URL: string = 'http://localhost:4000/api/campaign';
+const URL: string = 'https://leads-backend-consalud.herokuapp.com/api/campaign';
+//const URL: string = 'http://localhost:4000/api/campaign';
 
 @Injectable({
   providedIn: 'root'
