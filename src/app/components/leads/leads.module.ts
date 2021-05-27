@@ -5,15 +5,18 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { SendSmsComponent } from './send-sms/send-sms.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SendEmailsComponent } from './send-emails/send-emails.component';
 
 @NgModule({
   declarations: [
     ListLeadsComponent,
-    SendSmsComponent
+    SendSmsComponent,
+    SendEmailsComponent
   ],
   exports: [
     ListLeadsComponent,
-    SendSmsComponent
+    SendSmsComponent,
+    SendEmailsComponent
   ],
   imports: [
     CommonModule,
