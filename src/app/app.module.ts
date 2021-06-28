@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CountriesState } from './state/countries.state';
 import { CampaingState } from './state/campaign.state';
+import { BlogState } from './state/blog.state';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CampaingState } from './state/campaign.state';
       UiState, 
       LeadState,
       CountriesState,
-      CampaingState
+      CampaingState,
+      BlogState
     ]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgbModule

@@ -55,7 +55,7 @@ export class SendEmailsComponent implements OnInit {
   }
 
   sendEmails(){
-    const emails: string[] = this.data.map(x => x.Email);
+    const emails: any[] = this.data.map(x => ({ "email": x.Email }));
     this.store.dispatch(new SendCampaignAction(this.campaignSelected, emails))
       .subscribe(() => this.data = []);
   }

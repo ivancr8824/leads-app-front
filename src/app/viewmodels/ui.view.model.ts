@@ -3,7 +3,7 @@ import { IStatusResponse } from '../models/statusResponse.model';
 interface IUiViewModel {
     loading: boolean;
     submit: boolean;
-    statusResponse: IStatusResponse
+    statusResponse: IStatusResponse;
 }
 
 export class UiViewModel implements IUiViewModel{

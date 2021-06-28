@@ -6,6 +6,12 @@ export const environment = {
   production: false
 };
 
+export const KEYS_THUMBSNAP = {
+  CLIENT_ID: '000015951ed6ffd80f952cf2e70fbef1',
+}
+
+export const URL_THUMBSNAP = 'https://thumbsnap.com/api';
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
