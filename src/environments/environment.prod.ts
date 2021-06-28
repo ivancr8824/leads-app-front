@@ -2,7 +2,7 @@ export const environment = {
   production: true
 };
 
-export const KEYS_IMGBB = {
+export const KEYS_THUMBSNAP = {
   CLIENT_ID: '000015951ed6ffd80f952cf2e70fbef1',
 }
 
